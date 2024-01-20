@@ -7,7 +7,7 @@ import {
 } from '@dytesdk/react-ui-kit';
 import "./rightpanel.css";
 
-export function RightPanel({token}){
+export function RightPanel({info}){
   
     const [meeting, initMeeting] = useDyteClient();
     useEffect(() => {
@@ -15,9 +15,9 @@ export function RightPanel({token}){
         theme: 'dark',
       });     
       
-      if(token){
-          console.log(token)
-          let authToken=token.authToken
+      if(info){
+          console.log(info)
+          let authToken=info.authToken
        
         initMeeting({
           authToken,
@@ -30,7 +30,7 @@ export function RightPanel({token}){
             Object.assign(window, { meeting: m });
         });
         }
-    }, [token]);
+    }, [info]);
   
     if (!meeting) return(
         <div className='container'>
@@ -41,7 +41,7 @@ export function RightPanel({token}){
          )
     return(
     <div style={{width:"80%"}}>
-      <p className='contact-name'>{token.name}</p>
+      <p className='contact-name'>{info.name}</p>
      <DyteUiProvider meeting={meeting} >
        <DyteChat 
        style={{ height: '93vh', backgroundColor: '#000' }} />

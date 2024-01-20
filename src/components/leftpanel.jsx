@@ -22,7 +22,7 @@ var newContactList=[]
 
 let foo = prompt('Join in as');
 
-export function LeftPanel({token}){
+export function LeftPanel({info}){
 
     const [color,setColor]=useState(-1)
    
@@ -54,10 +54,10 @@ export function LeftPanel({token}){
             await addParticipants(foo,newContactList[i].meetingId,"group_call_participant").then(data=>{
                 console.log(data.data.token)
                 newContactList[i].authToken=data.data.token
-                token(newContactList[i])
+                info(newContactList[i])
             })
         }else{
-            token(newContactList[i])
+            info(newContactList[i])
         }
         return
     }

@@ -4,14 +4,14 @@ import { RightPanel } from './components/rightpanel';
 import "./App.css"
 
 function App() {
-const [meetingId,setMeetingId]=useState()
+const [meetingObj,setMeetingObj]=useState()
 
   return (
     <div style={{display:"flex", flexDirection:"row"}}>
       <LeftPanel
-      token={setMeetingId} />
+      info={setMeetingObj} />
       <RightPanel
-      token={meetingId} />
+      info={meetingObj} />
     </div>
   );
 }
